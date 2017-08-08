@@ -4,9 +4,9 @@ project(githubapicpp)
 set(CMAKE_CXX_STANDARD 11)
 
 set(HEADER_FILES
-        include/GithubAPI.h src/CURLUtils.h)
+        include/GitHubAPI.h src/CURLUtils.h)
 set(CPP_FILES
-        include/GithubAPI.cpp include/User.h include/User.cpp src/CURLUtils.cpp)
+        include/GitHubAPI.cpp include/User.h include/User.cpp src/CURLUtils.cpp)
 add_library(${PROJECT_NAME} ${CPP_FILES})
 
 install(TARGETS ${PROJECT_NAME} DESTINATION /usr/local/lib)

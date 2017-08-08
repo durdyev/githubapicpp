@@ -9,12 +9,12 @@
 
 namespace githubapicpp {
 
-    class GithubAPI {
+    class GitHubAPI {
     private:
         std::string clientId;
         std::string secret;
     public:
-        GithubAPI(const std::string &clientId, const std::string &secret);
+        GitHubAPI(const std::string &clientId, const std::string &secret);
         User getUser(std::string user);
     };
 
