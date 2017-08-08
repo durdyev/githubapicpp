@@ -1,5 +1,6 @@
 # GITHub API C++ implementation
-This is a C++ implementation of GITHub API. This API was built for my goals, my be not full api. But you can change source for your goals under Apache 2.0 License.
+This is a C++ implementation of GITHub API. This API was built for my goals, 
+may be not full api. But you can change source code for your goals under Apache 2.0 License.
 
 Doxygen documentation available here https://codedocs.xyz/durdyev/githubapicpp/ 
 

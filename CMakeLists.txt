@@ -9,6 +9,7 @@ set(HEADER_FILES
         include/GitHubAPI.h src/CURLUtils.h)
 set(CPP_FILES
         include/GitHubAPI.cpp include/User.h include/User.cpp src/CURLUtils.cpp)
+set(TEST_FILES test/TestGitHubAPI.cpp)
 add_library(${PROJECT_NAME} ${CPP_FILES})
 
 install(TARGETS ${PROJECT_NAME} DESTINATION /usr/local/lib)
@@ -30,3 +31,10 @@ if (WIN32)
 endif()
 
 target_link_libraries(githubapicpp curl)
+
+# TESTS
+add_executable(test_github_api ${TEST_FILES})
+target_include_directories(test_github_api PRIVATE ${Boost_INCLUDE_DIRS})
+target_compile_definitions(test_github_api PRIVATE "BOOST_TEST_DYN_LINK=1")
+target_link_libraries(test_github_api boost_unit_test_framework githubapicpp)
+add_test(NAME test_api COMMAND test_github_api)
