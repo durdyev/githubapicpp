@@ -6,8 +6,7 @@ This is a C++ implementation of GITHub API. This API was built for my goals, my 
 
 ### Dependecies
 
-You need to install CURL.
-
+You need to install CURL and RapidJSON
 ### Installation
 
 ```sh
