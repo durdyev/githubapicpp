@@ -6,7 +6,13 @@
 #include "GitHubAPI.h"
 #include "../src/CURLUtils.h"
 
-///@inherit
+/**
+ * Please enter here your application client_id and secret
+ * and then you can use github API. More information you can
+ * find on github website http://developer.github.com
+ * @param clientId applicatoin client_id
+ * @param secret application secret
+ */
 githubapicpp::GitHubAPI::GitHubAPI(const std::string &clientId,
                                    const std::string &secret) :
         clientId(clientId),secret(secret) {}
