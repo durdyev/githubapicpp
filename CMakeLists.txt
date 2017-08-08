@@ -3,6 +3,8 @@ project(githubapicpp)
 
 set(CMAKE_CXX_STANDARD 11)
 
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake/Modules")
+
 set(HEADER_FILES
         include/GitHubAPI.h src/CURLUtils.h)
 set(CPP_FILES

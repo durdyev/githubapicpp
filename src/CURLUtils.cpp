@@ -6,7 +6,6 @@
 
 std::string githubapicpp::CURLUtils::getUserCurl(std::string &clientId, std::string &secret, std::string &user) {
     CURL *curl;
-    CURLcode res;
     std::string readBuffer;
 
     curl = curl_easy_init();
