@@ -13,7 +13,7 @@
 namespace githubapicpp {
 
     /**
-     * \class
+     * \class GitHubAPI
      * This is main githubapicpp class
      * here are implemented GitHub API Rest V3
      */
@@ -21,7 +21,19 @@ namespace githubapicpp {
     private:
         std::string clientId;       /// application client_id
         std::string secret;         /// application secret
+        /**
+         * \fn User convertJSONToUser(std::string &json)
+         * This method convert json object to user
+         * @param json char array, json object
+         * @return converted User \see User
+         */
         User convertJSONToUser(std::string &json);
+        /**
+         * \fn std::vector<User> convertJSONToUsers(std::string &json)
+         * This method convert json object to vector with User classes
+         * @param json json object
+         * @return vector with User class
+         */
         std::vector<User> convertJSONToUsers(std::string &json);
     public:
         GitHubAPI(const std::string &clientId, const std::string &secret);

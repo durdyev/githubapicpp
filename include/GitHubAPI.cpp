@@ -9,32 +9,15 @@
 #include "rapidjson/rapidjson.h"
 #include "rapidjson/document.h"
 
-/**
- * Please enter here your application client_id and secret
- * and then you can use github API. More information you can
- * find on github website http://developer.github.com
- * @param clientId applicatoin client_id
- * @param secret application secret
- */
 githubapicpp::GitHubAPI::GitHubAPI(const std::string &clientId,
                                    const std::string &secret) :
         clientId(clientId),secret(secret) {}
 
-/**
- * This method return user by string
- * @param user user string
- * @return user list
- */
 githubapicpp::User githubapicpp::GitHubAPI::getUser(std::string user) {
     std::cout << CURLUtils::getUserCurl(clientId, secret, user) << std::endl;
     return githubapicpp::User();
 }
 
-/**
- * This function retutn user list since selected id
- * @param since github id
- * @return user list
- */
 std::vector<githubapicpp::User> githubapicpp::GitHubAPI::getUsers(int since) {
     std::vector<githubapicpp::User> usersVector;
     std::string json = CURLUtils::getUsersCurl(clientId, secret, 1);
