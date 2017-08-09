@@ -12,8 +12,9 @@
  * Test case select one user by user login
  */
 BOOST_AUTO_TEST_CASE( test_get_user ) {
-//    githubapicpp::GitHubAPI api("", "");
-//    api.getUser("durdyev");
+    githubapicpp::GitHubAPI api("", "");
+    githubapicpp::User user = api.getUser("durdyev");
+    std::cout<<user.getLogin()<<std::endl;
 }
 
 /**
@@ -23,6 +24,6 @@ BOOST_AUTO_TEST_CASE( teset_get_users ) {
     githubapicpp::GitHubAPI api("", "");
     std::vector<githubapicpp::User> users = api.getUsers(1);
     for (githubapicpp::User u : users) {
-        std::cout << u.getLogin() << std::endl;
+//        std::cout << u.getLogin() << std::endl;
     }
 }

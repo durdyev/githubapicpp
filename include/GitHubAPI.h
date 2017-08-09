@@ -6,6 +6,8 @@
 #define GITHUBAPICPP_GITHUBAPI_H
 
 #include "User.h"
+#include <rapidjson/document.h>
+#include <rapidjson/rapidjson.h>
 
 /**
  * GitHubAPI CPP namespace
@@ -27,17 +29,26 @@ namespace githubapicpp {
          * @param json char array, json object
          * @return converted User \see User
          */
-        User convertJSONToUser(std::string &json);
-        /**
-         * \fn std::vector<User> convertJSONToUsers(std::string &json)
-         * This method convert json object to vector with User classes
-         * @param json json object
-         * @return vector with User class
-         */
-        std::vector<User> convertJSONToUsers(std::string &json);
+        User convertJSONToUser(rapidjson::Value el);
+        User convertJSONToUser(std::string& json);
     public:
+        /**
+         * \fn Pass here your application client_id and secret
+         * @param clientId client_id
+         * @param secret application secret
+         */
         GitHubAPI(const std::string &clientId, const std::string &secret);
+        /**
+         * \fn Get user
+         * @param user user name, aka durdyev, github user login
+         * @return User object
+         */
         User getUser(std::string user);
+        /**
+         * \fn Get user list
+         * @param since since parameter
+         * @return the vector of the User objects
+         */
         std::vector<User> getUsers(int since);
     };
 
