@@ -30,6 +30,11 @@ namespace githubapicpp {
          * @return converted User \see User
          */
         User convertJSONToUser(rapidjson::Value el);
+        /**
+         * \fn Convert JSON string to User object
+         * @param json json string
+         * @return User object
+         */
         User convertJSONToUser(std::string& json);
     public:
         /**
