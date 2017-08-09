@@ -6,9 +6,11 @@
 #define GITHUBAPICPP_ORGANIZATION_H
 
 
-class Organization {
+namespace githubapicpp {
+    class Organization {
 
-};
+    };
+}
 
 
 #endif //GITHUBAPICPP_ORGANIZATION_H

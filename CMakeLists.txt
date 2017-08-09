@@ -6,10 +6,10 @@ set(CMAKE_CXX_STANDARD 11)
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake/Modules")
 
 set(HEADER_FILES
-        include/GitHubAPI.h src/CURLUtils.h include/Organization.h)
+        include/GitHubAPI.h src/CURLUtils.h include/Organization.h include/Repository.h)
 set(CPP_FILES
         include/GitHubAPI.cpp include/User.h include/User.cpp src/CURLUtils.cpp
-        include/Organization.cpp)
+        include/Organization.cpp include/Repository.cpp)
 set(TEST_FILES test/TestGitHubAPI.cpp)
 add_library(${PROJECT_NAME} ${CPP_FILES})
 
