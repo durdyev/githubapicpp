@@ -212,20 +212,20 @@ void githubapicpp::User::setPublicGists(short publicGists) {
     User::publicGists = publicGists;
 }
 
-short githubapicpp::User::getFolowers() const {
-    return folowers;
+short githubapicpp::User::getFollowers() const {
+    return followers;
 }
 
-void githubapicpp::User::setFolowers(short folowers) {
-    User::folowers = folowers;
+void githubapicpp::User::setFollowers(short folowers) {
+    User::followers = folowers;
 }
 
-short githubapicpp::User::getFolowing() const {
-    return folowing;
+short githubapicpp::User::getFollowing() const {
+    return following;
 }
 
-void githubapicpp::User::setFolowing(short folowing) {
-    User::folowing = folowing;
+void githubapicpp::User::setFollowing(short folowing) {
+    User::following = folowing;
 }
 
 time_t githubapicpp::User::getCreatedAt() const {

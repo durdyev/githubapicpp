@@ -8,7 +8,21 @@
 #include <iostream>
 #include "../include/GitHubAPI.h"
 
+/**
+ * Test case select one user by user login
+ */
 BOOST_AUTO_TEST_CASE( test_get_user ) {
+//    githubapicpp::GitHubAPI api("", "");
+//    api.getUser("durdyev");
+}
+
+/**
+ * Test case select all users by since parameter
+ */
+BOOST_AUTO_TEST_CASE( teset_get_users ) {
     githubapicpp::GitHubAPI api("", "");
-    api.getUser("durdyev");
+    std::vector<githubapicpp::User> users = api.getUsers(1);
+    for (githubapicpp::User u : users) {
+        std::cout << u.getLogin() << std::endl;
+    }
 }

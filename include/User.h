@@ -36,8 +36,8 @@ namespace githubapicpp {
         std::string bio;
         short publicRepos;
         short publicGists;
-        short folowers;
-        short folowing;
+        short followers;
+        short following;
         time_t createdAt;
         time_t updatedAt;
     public:
@@ -145,13 +145,13 @@ namespace githubapicpp {
 
         void setPublicGists(short publicGists);
 
-        short getFolowers() const;
+        short getFollowers() const;
 
-        void setFolowers(short folowers);
+        void setFollowers(short followers);
 
-        short getFolowing() const;
+        short getFollowing() const;
 
-        void setFolowing(short folowing);
+        void setFollowing(short following);
 
         time_t getCreatedAt() const;
 
