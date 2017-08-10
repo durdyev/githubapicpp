@@ -24,13 +24,6 @@ namespace githubapicpp {
         std::string clientId;       /// application client_id
         std::string secret;         /// application secret
         /**
-         * \fn User convertJSONToUser(std::string &json)
-         * This method convert json object to user
-         * @param json char array, json object
-         * @return converted User \see User
-         */
-        User convertJSONToUser(rapidjson::Value el);
-        /**
          * \fn Convert JSON string to User object
          * @param json json string
          * @return User object

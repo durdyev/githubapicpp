@@ -28,14 +28,6 @@ void githubapicpp::Repository::setFullName(const std::string &fullName) {
     Repository::fullName = fullName;
 }
 
-const githubapicpp::User &githubapicpp::Repository::getOwner() const {
-    return owner;
-}
-
-void githubapicpp::Repository::setOwner(const githubapicpp::User &owner) {
-    Repository::owner = owner;
-}
-
 bool githubapicpp::Repository::isIsPrivate() const {
     return isPrivate;
 }
@@ -548,18 +540,26 @@ void githubapicpp::Repository::setOrganization(const githubapicpp::Organization 
     Repository::organization = organization;
 }
 
-const githubapicpp::Repository &githubapicpp::Repository::getParent() const {
+githubapicpp::Repository *githubapicpp::Repository::getParent() const {
     return parent;
 }
 
-void githubapicpp::Repository::setParent(const githubapicpp::Repository &parent) {
+void githubapicpp::Repository::setParent(githubapicpp::Repository *parent) {
     Repository::parent = parent;
 }
 
-const githubapicpp::Repository &githubapicpp::Repository::getSource() const {
+githubapicpp::Repository *githubapicpp::Repository::getSource() const {
     return source;
 }
 
-void githubapicpp::Repository::setSource(const githubapicpp::Repository &source) {
+void githubapicpp::Repository::setSource(githubapicpp::Repository *source) {
     Repository::source = source;
+}
+
+githubapicpp::User *githubapicpp::Repository::getOwner() const {
+    return owner;
+}
+
+void githubapicpp::Repository::setOwner(githubapicpp::User *owner) {
+    Repository::owner = owner;
 }

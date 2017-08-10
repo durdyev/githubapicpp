@@ -20,7 +20,7 @@ namespace githubapicpp {
         int id;
         std::string name;
         std::string fullName;
-        User owner;
+        User *owner;
         bool isPrivate;
         std::string htmUrl;
         std::string description;
@@ -85,8 +85,8 @@ namespace githubapicpp {
         std::string defaultBranch;
         std::vector<std::string> topics;
         Organization organization;
-        Repository parent;
-        Repository source;
+        Repository *parent;
+        Repository *source;
     public:
         int getId() const;
 
@@ -99,10 +99,6 @@ namespace githubapicpp {
         const std::string &getFullName() const;
 
         void setFullName(const std::string &fullName);
-
-        const User &getOwner() const;
-
-        void setOwner(const User &owner);
 
         bool isIsPrivate() const;
 
@@ -360,13 +356,17 @@ namespace githubapicpp {
 
         void setOrganization(const Organization &organization);
 
-        const Repository &getParent() const;
+        Repository *getParent() const;
 
-        void setParent(const Repository &parent);
+        void setParent(Repository *parent);
 
-        const Repository &getSource() const;
+        Repository *getSource() const;
 
-        void setSource(const Repository &source);
+        void setSource(Repository *source);
+
+        User *getOwner() const;
+
+        void setOwner(User *owner);
     };
 }
 
