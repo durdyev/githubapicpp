@@ -8,7 +8,7 @@
 #include <iostream>
 
 /**
- * \name githubapicpp
+ * \namespace githubapicpp
  * The main namespace of this library
  */
 namespace githubapicpp {
