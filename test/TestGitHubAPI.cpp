@@ -27,3 +27,8 @@ BOOST_AUTO_TEST_CASE( teset_get_users ) {
         std::cout << u.getLogin() << std::endl;
     }
 }
+
+BOOST_AUTO_TEST_CASE( test_get_organizations ) {
+    githubapicpp::GitHubAPI api("", "");
+    api.getOrganizations(1);
+}

@@ -7,7 +7,16 @@
 
 #include <string>
 
+/**
+ * \namespace githubapicpp
+ * This is the main namespace of this library
+ */
 namespace githubapicpp {
+    /**
+     * \class User
+     * This is C++ implementation of GitHub API user
+     * See more information here https://developer.github.com/v3/users/
+     */
     class User {
     private:
         std::string login;

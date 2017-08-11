@@ -41,3 +41,11 @@ std::string githubapicpp::CURLUtils::getResponse(char *url) {
     }
 
 }
+
+std::string githubapicpp::CURLUtils::getOrganizations(std::string &clientId, std::string &secret, int since) {
+    std::ostringstream oss;
+    oss << "https://api.github.com/organizations"
+        << "?client_id=" << clientId << "&client_secret=" << secret
+        << "?since=" << since;
+    return getResponse((char *)oss.str().c_str());
+}

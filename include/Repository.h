@@ -11,9 +11,15 @@
 #include "User.h"
 #include "Organization.h"
 
+/**
+ * \namespace githubapicpp
+ * This is the main namespace of this library
+ */
 namespace githubapicpp {
     /**
-     * \class GitHub Repository
+     * \class Repository
+     * This is a C++ implementation of GitHub API repository
+     * See more information here https://developer.github.com/v3/repos/
      */
     class Repository {
     private:
