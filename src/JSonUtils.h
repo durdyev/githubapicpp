@@ -9,7 +9,10 @@
  * \namespace githubapicpp
  * The main GitHub API CPP namespace
  */
+#include <rapidjson/encodings.h>
+#include <rapidjson/document.h>
 #include "../include/User.h"
+#include "../include/Organization.h"
 
 namespace githubapicpp {
     /**
@@ -26,7 +29,9 @@ namespace githubapicpp {
          * @param json json string
          * @return User C++ object
          */
-        static User convertJSONToUser(std::string& json);
+        static User * convertJSONToUser(std::string json);
+        static Organization * convertJSONToOrganization(std::string json);
+        static const std::string getStringFromJSONElement(rapidjson::GenericValue<rapidjson::UTF8<>> &el);
     };
 }
 

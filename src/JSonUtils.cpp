@@ -4,8 +4,10 @@
 
 #include "JSonUtils.h"
 #include <rapidjson/document.h>
+#include <rapidjson/stringbuffer.h>
+#include <rapidjson/writer.h>
 
-githubapicpp::User githubapicpp::JSonUtils::convertJSONToUser(std::string& json) {
+githubapicpp::User * githubapicpp::JSonUtils::convertJSONToUser(std::string json) {
     User * user = new User();
     rapidjson::Document el;
     el.Parse(json.c_str());
@@ -66,5 +68,42 @@ githubapicpp::User githubapicpp::JSonUtils::convertJSONToUser(std::string& json)
         user->setFollowers(el["followers"].GetInt());
     if (el.HasMember("following"))
         user->setFollowing(el["following"].GetInt());
-    return *user;
+    return user;
+}
+
+const std::string githubapicpp::JSonUtils::getStringFromJSONElement(rapidjson::GenericValue<rapidjson::UTF8<>> &el) {
+    rapidjson::StringBuffer buffer;
+    rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+    el.Accept(writer);
+    return buffer.GetString();
+}
+
+githubapicpp::Organization * githubapicpp::JSonUtils::convertJSONToOrganization(std::string json) {
+    Organization * organization = new Organization();
+    rapidjson::Document el;
+    el.Parse(json.c_str());
+    if (el.HasMember("id"))
+        organization->setId(el["id"].GetInt());
+    if (el.HasMember("login"))
+        organization->setLogin(el["login"].GetString());
+    if (el.HasMember("url"))
+        organization->setUrl(el["url"].GetString());
+    if (el.HasMember("repos_url"))
+        organization->setReposUrl(el["repos_url"].GetString());
+    if (el.HasMember("events_url"))
+        organization->setEventsUrl(el["events_url"].GetString());
+    if (el.HasMember("hooks_url"))
+        organization->setHooksUrl(el["hooks_url"].GetString());
+    if (el.HasMember("issues_url"))
+        organization->setIssuesUrl(el["issues_url"].GetString());
+    if (el.HasMember("members_url"))
+        organization->setMembersUrl(el["members_url"].GetString());
+    if (el.HasMember("public_members_url"))
+        organization->setPublicMembersUrl(el["public_members_url"].GetString());
+    if (el.HasMember("avatar_url"))
+        organization->setAvatarUrl(el["avatar_url"].GetString());
+//    if (el.HasMember("description")) // TODO some bug here
+//        organization->setDescription(el["description"].GetString());
+
+    return organization;
 }

@@ -40,14 +40,14 @@ namespace githubapicpp {
          * @param user user name, aka durdyev, github user login
          * @return User object
          */
-        User getUser(std::string user);
+        User * getUser(std::string user);
         /**
          * \fn std::vector<User> getUsers(int since)
          * Get user list
          * @param since since parameter
          * @return the vector of the User objects
          */
-        std::vector<User> getUsers(int since);
+        std::vector<User*> getUsers(int since);
 
         /**
          * \fn std::vector<Organization> getOrganizations(int since)
@@ -55,7 +55,7 @@ namespace githubapicpp {
          * @param since since parameter
          * @return vector with orgs
          */
-        std::vector<Organization> getOrganizations(int since);
+        std::vector<Organization*> getOrganizations(int since);
     };
 
 }

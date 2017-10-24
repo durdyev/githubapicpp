@@ -14,29 +14,34 @@ githubapicpp::GitHubAPI::GitHubAPI(const std::string &clientId,
                                    const std::string &secret) :
         clientId(clientId),secret(secret) {}
 
-githubapicpp::User githubapicpp::GitHubAPI::getUser(std::string user) {
+githubapicpp::User * githubapicpp::GitHubAPI::getUser(std::string user) {
     std::string json = CURLUtils::getUserCurl(clientId, secret, user);
     return JSonUtils::convertJSONToUser(json);
 }
 
-std::vector<githubapicpp::User> githubapicpp::GitHubAPI::getUsers(int since) {
-    std::vector<githubapicpp::User> usersVector;
+std::vector<githubapicpp::User*> githubapicpp::GitHubAPI::getUsers(int since) {
+    std::vector<githubapicpp::User*> users;
     std::string json = CURLUtils::getUsersCurl(clientId, secret, 1);
     rapidjson::Document doc;
     doc.Parse(json.c_str());
     if (doc.IsArray()) {
         for (auto &el : doc.GetArray()) {
-            rapidjson::StringBuffer buffer;
-            rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
-            el.Accept(writer);
-            std::string elJson = buffer.GetString();
-            usersVector.push_back(JSonUtils::convertJSONToUser(elJson));
+            users.push_back(JSonUtils::convertJSONToUser(JSonUtils::getStringFromJSONElement(el)));
         }
     }
-    return usersVector;
+    return users;
 }
 
-std::vector<githubapicpp::Organization> githubapicpp::GitHubAPI::getOrganizations(int since) {
-    std::cout << CURLUtils::getOrganizations(clientId, secret, since) << std::endl;
-    return std::vector<githubapicpp::Organization>();
+std::vector<githubapicpp::Organization*> githubapicpp::GitHubAPI::getOrganizations(int since) {
+    std::vector<githubapicpp::Organization*> organizations;
+    std::string json = CURLUtils::getOrganizations(clientId, secret, since);
+    rapidjson::Document doc;
+    doc.Parse(json.c_str());
+    if (doc.IsArray()) {
+        for (auto &el : doc.GetArray()) {
+            organizations.push_back(
+                    JSonUtils::convertJSONToOrganization(JSonUtils::getStringFromJSONElement(el)));
+        }
+    }
+    return organizations;
 }
