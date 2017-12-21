@@ -9,6 +9,8 @@
 #include <curl/curl.h>
 #include <iostream>
 
+#define GITHUB_API_URL "https://api.github.com"
+
 /**
  * \namespace githubapicpp
  * This is the main namespace of this library

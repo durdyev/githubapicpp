@@ -12,14 +12,14 @@ size_t githubapicpp::CURLUtils::WriteCallback(void *contents, size_t size, size_
 
 std::string githubapicpp::CURLUtils::getUserCurl(std::string &clientId, std::string &secret, std::string &user) {
     std::ostringstream oss;
-    oss << "https://api.github.com/users/" << user
+    oss << GITHUB_API_URL << "/users/" << user
         << "?client_id=" << clientId << "&client_secret=" << secret;
     return getResponse((char *)oss.str().c_str());
 }
 
 std::string githubapicpp::CURLUtils::getUsersCurl(std::string &clientId, std::string &secret, int since) {
     std::ostringstream oss;
-    oss << "https://api.github.com/users"
+    oss << GITHUB_API_URL << "/users"
         << "?client_id=" << clientId << "&client_secret=" << secret
             << "?since=" << since;
     return getResponse((char *)oss.str().c_str());
@@ -44,7 +44,7 @@ std::string githubapicpp::CURLUtils::getResponse(char *url) {
 
 std::string githubapicpp::CURLUtils::getOrganizations(std::string &clientId, std::string &secret, int since) {
     std::ostringstream oss;
-    oss << "https://api.github.com/organizations"
+    oss << GITHUB_API_URL << "/organizations"
         << "?client_id=" << clientId << "&client_secret=" << secret
         << "?since=" << since;
     return getResponse((char *)oss.str().c_str());
