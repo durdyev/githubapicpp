@@ -20,6 +20,9 @@ install(DIRECTORY
         DESTINATION /usr/local/include/${PROJECT_NAME}
         FILES_MATCHING PATTERN "*.h*")
 
+include_directories(/usr/local/include)
+link_directories(/usr/local/lib)
+
 if (APPLE)
     set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME ${PROJECT_NAME} SUFFIX ".dylib")
 endif()

@@ -15,13 +15,13 @@ githubapicpp::GitHubAPI::GitHubAPI(const std::string &clientId,
         clientId(clientId),secret(secret) {}
 
 githubapicpp::User * githubapicpp::GitHubAPI::getUser(std::string user) {
-    std::string json = CURLUtils::getUserCurl(clientId, secret, user);
+    std::string json = CURLUtils::getUser(clientId, secret, user);
     return JSonUtils::convertJSONToUser(json);
 }
 
 std::vector<githubapicpp::User*> githubapicpp::GitHubAPI::getUsers(int since) {
     std::vector<githubapicpp::User*> users;
-    std::string json = CURLUtils::getUsersCurl(clientId, secret, 1);
+    std::string json = CURLUtils::getUsers(clientId, secret, 1);
     rapidjson::Document doc;
     doc.Parse(json.c_str());
     if (doc.IsArray()) {
@@ -44,4 +44,9 @@ std::vector<githubapicpp::Organization*> githubapicpp::GitHubAPI::getOrganizatio
         }
     }
     return organizations;
+}
+
+githubapicpp::Organization * githubapicpp::GitHubAPI::getOrganization(std::string orgName) {
+    std::string json = CURLUtils::getOrganization(clientId, secret, orgName);
+    return JSonUtils::convertJSONToOrganization(json);
 }

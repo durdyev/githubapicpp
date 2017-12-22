@@ -34,20 +34,22 @@ namespace githubapicpp {
          * @param secret application secret
          */
         GitHubAPI(const std::string &clientId, const std::string &secret);
+
         /**
          * \fn User getUser(std::string user)
          * Get user
          * @param user user name, aka durdyev, github user login
          * @return User object
          */
-        User * getUser(std::string user);
+        User *getUser(std::string user);
+
         /**
          * \fn std::vector<User> getUsers(int since)
          * Get user list
          * @param since since parameter
          * @return the vector of the User objects
          */
-        std::vector<User*> getUsers(int since);
+        std::vector<User *> getUsers(int since);
 
         /**
          * \fn std::vector<Organization> getOrganizations(int since)
@@ -55,7 +57,15 @@ namespace githubapicpp {
          * @param since since parameter
          * @return vector with orgs
          */
-        std::vector<Organization*> getOrganizations(int since);
+        std::vector<Organization *> getOrganizations(int since);
+
+        /**
+         * \fn std::vector<Organization> getOrganizations(int since)
+         * This method return vector of organizations since selected id
+         * @param since since parameter
+         * @return vector with orgs
+         */
+        githubapicpp::Organization * getOrganization(std::string orgName);
     };
 
 }

@@ -47,9 +47,9 @@ namespace githubapicpp {
          * @param user user name
          * @return return JSON of user
          */
-        static std::string getUserCurl(std::string &clientId,
-                                              std::string &secret,
-                                              std::string &user);
+        static std::string getUser(std::string &clientId,
+                                   std::string &secret,
+                                   std::string &user);
         /**
          * \fn static std::string getUsersCurl(std::string &clientId,
                                         std::string &secret,
@@ -60,9 +60,9 @@ namespace githubapicpp {
          * @param since since parameter
          * @return user list JSON
          */
-        static std::string getUsersCurl(std::string &clientId,
-                                        std::string &secret,
-                                        int since);
+        static std::string getUsers(std::string &clientId,
+                                    std::string &secret,
+                                    int since);
 
         /**
          * \fn static std::string getOrganizations(std::string &clientId,
@@ -77,6 +77,17 @@ namespace githubapicpp {
         static std::string getOrganizations(std::string &clientId,
                                             std::string &secret,
                                             int since);
+
+        /**
+         * Get organization by name
+         * @param clientId application client_id
+         * @param secret application secret
+         * @param since since parameter
+         * @return json string of orgs since selected id
+         */
+        static std::string getOrganization(std::string &clientId,
+                                           std::string &secret,
+                                           std::string &orgName);
     };
 }
 

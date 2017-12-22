@@ -9,7 +9,7 @@
 #include "../include/GitHubAPI.h"
 
 #define CLIENT_ID "8564b5af861dd2699df7"
-#define SECRET "e8589af15febe942e11a98fc0bcb16fd35f3ec4e"
+#define SECRET "2a0402554853ae72fb5b6c883707b1b8294b3ca1"
 
 /**
  * Test case select one user by user login
@@ -40,4 +40,11 @@ BOOST_AUTO_TEST_CASE( test_get_organizations ) {
     for (githubapicpp::Organization* o: orgs) {
         std::cout << o->getLogin() << std:: endl;
     }
+}
+
+BOOST_AUTO_TEST_CASE ( test_get_organization ) {
+    std::cout << "---- Organization test ---" << std::endl;
+    githubapicpp::GitHubAPI api(CLIENT_ID, SECRET);
+    githubapicpp::Organization *org = api.getOrganization("torgcrm");
+    std::cout << org->getReposUrl() << std:: endl;
 }
